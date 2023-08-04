@@ -1,0 +1,26 @@
+{
+	"name": "foobar-api",
+	"version": "1.0.0",
+	"description": "",
+	"main": "index.js",
+	"scripts": {
+		"start": "nodemon index.ts",
+		"build": "tsc --project ./",
+		"swagger-pack": "swagger-pack ./api/foobar-api.json > ./api/foobar-api-spec.json"
+	},
+	"keywords": [],
+	"dependencies": {
+		"@gasbuddy/swagger-ref-resolver": "^5.2.0",
+		"express": "^4.17.1",
+		"nodemon": "^2.0.4",
+		"swaggerize-express-ts": "^4.0.8"
+	},
+	"devDependencies": {
+		"@types/config": "0.0.38",
+		"@types/express": "^4.17.8",
+		"@types/node": "^14.11.2",
+		"nodemon": "^2.0.4",
+		"ts-node": "^9.0.0",
+		"typescript": "^4.0.3"
+	}
+}

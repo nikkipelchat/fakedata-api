@@ -1,0 +1,109 @@
+{
+	"paths": {
+    "/users": {
+      "get": {
+        "tags": [
+          "users"
+        ],
+        "summary": "Get all user",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "All users.",
+            "schema": {
+              "$ref": "#/definitions/UserResponse"
+            }
+          }
+        }
+      }
+    },
+    "/users/{id}": {
+      "get": {
+        "tags": [
+          "users"
+        ],
+        "summary": "Gets a user by id",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "The unique id of the user in the DB",
+            "type": "string",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The includes the basic info about a user",
+            "schema": {
+              "$ref": "#/definitions/User"
+            }
+          },
+          "404": {
+            "description": "User not found",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          },
+          "500": {
+            "description": "Internal server error",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "UserResponse": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/User"
+      }
+    },
+    "User": {
+      "properties": {
+        "id": {
+          "type": "integer",
+          "description": "The id of the user"
+        },
+        "first_name": {
+          "type": "string",
+          "description": "The first name"
+        },
+        "last_name": {
+          "type": "string",
+          "description": "The last name"
+        },
+        "pronouns": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Pronoun"
+          },
+          "description": "The pronouns"
+        },
+        "email": {
+          "type": "string",
+          "description": "The email"
+        }
+      }
+    },
+    "ErrorResponse": {
+      "type": "object",
+      "required": [
+        "message"
+      ],
+      "properties": {
+        "code": {
+          "type": "integer",
+          "description": "Code associated with the error"
+        },
+        "message": {
+          "type": "string",
+          "description": "Error Description"
+        }
+      }
+    }
+  }
+}

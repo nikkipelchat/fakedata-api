@@ -1,0 +1,20 @@
+{
+  "definitions": {
+    "ErrorResponse": {
+      "type": "object",
+      "required": [
+        "message"
+      ],
+      "properties": {
+        "code": {
+          "type": "integer",
+          "description": "Code associated with the error"
+        },
+        "message": {
+          "type": "string",
+          "description": "Error Description"
+        }
+      }
+    }
+  }
+}

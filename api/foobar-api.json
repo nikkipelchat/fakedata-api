@@ -1,0 +1,29 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "Foobar API",
+    "version": "1.0.0"
+  },
+  "basePath": "/",
+  "produces": [
+    "application/json"
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "paths": {
+    "$ref": [
+      "./users.json#paths",
+      "./meta.json#paths",
+      "./utils.json#paths"
+    ]
+  },
+  "definitions": {
+    "$ref": [
+      "./users.json#definitions",
+      "./meta.json#definitions",
+      "./utils.json#definitions",
+      "./common.json#definitions"
+    ]
+  }
+}

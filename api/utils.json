@@ -1,0 +1,63 @@
+{
+  "paths": {
+    "/pronouns": {
+      "get": {
+        "tags": [
+          "pronouns"
+        ],
+        "summary": "Returns a list of ids and their corresponding names for each pronoun",
+        "responses": {
+          "200": {
+            "description": "Returns the list successfully",
+            "schema": {
+              "$ref": "#/definitions/Pronouns"
+            }
+          },
+          "500": {
+            "description": "Internal server error",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "Pronoun": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "description": "The numerical id that corresponds with given display_name value"
+        },
+        "name": {
+          "type": "string",
+          "description": "The display name"
+        }
+      }
+    },
+    "Pronouns": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/Pronoun"
+      }
+    },
+    "ErrorResponse": {
+      "type": "object",
+      "required": [
+        "message"
+      ],
+      "properties": {
+        "code": {
+          "type": "integer",
+          "description": "Code associated with the error"
+        },
+        "message": {
+          "type": "string",
+          "description": "Error Description"
+        }
+      }
+    }
+  }
+}
